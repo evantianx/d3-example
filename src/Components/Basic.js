@@ -1,5 +1,6 @@
-import { select } from "d3-selection";
+import { select } from "d3";
 import { useEffect, useRef, useState } from "react";
+import { Wrapper } from "./Wrapper";
 
 export function Basic() {
   const [data, setData] = useState([25, 60, 40, 95, 15]);
@@ -18,7 +19,7 @@ export function Basic() {
   }, [data]);
 
   return (
-    <>
+    <Wrapper>
       <svg ref={svgRef}></svg>
       <br />
       <button onClick={() => setData(data.map((v) => v + 5))}>
@@ -27,6 +28,6 @@ export function Basic() {
       <button onClick={() => setData(data.filter((v) => v < 50))}>
         Filter Data
       </button>
-    </>
+    </Wrapper>
   );
 }
